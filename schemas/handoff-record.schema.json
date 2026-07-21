@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lotus-private-relocation.example/schemas/handoff-record.schema.json",
+  "title": "Partner Handoff Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "handoff_id",
+    "case_id",
+    "partner_id",
+    "partner_status",
+    "stage",
+    "purpose",
+    "consent",
+    "minimum_data_fields",
+    "lotus_owner",
+    "partner_owner",
+    "next_action"
+  ],
+  "properties": {
+    "handoff_id": {"type": "string", "pattern": "^LPR-HO-[A-Z0-9-]+$"},
+    "case_id": {"type": "string", "pattern": "^LPR-CASE-[A-Z0-9-]+$"},
+    "partner_id": {"type": "string", "pattern": "^LPR-P-[A-Z0-9-]+$"},
+    "partner_status": {
+      "enum": ["DUE_DILIGENCE", "PILOT", "ACTIVE", "RESTRICTED", "SUSPENDED", "REJECTED"]
+    },
+    "stage": {
+      "enum": [
+        "DRAFT",
+        "READY_FOR_CONSENT",
+        "CONSENT_GRANTED",
+        "INTRODUCED",
+        "ACKNOWLEDGED",
+        "WITHDRAWN",
+        "BLOCKED"
+      ]
+    },
+    "purpose": {"type": "string", "minLength": 10, "maxLength": 500},
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consent_id", "status"],
+      "properties": {
+        "consent_id": {"type": "string", "pattern": "^LPR-CONS-[A-Z0-9-]+$"},
+        "status": {"enum": ["NOT_REQUESTED", "REQUESTED", "GRANTED", "WITHDRAWN", "EXPIRED"]},
+        "evidence_ref": {"type": "string", "minLength": 3, "maxLength": 240}
+      }
+    },
+    "minimum_data_fields": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "preferred_name",
+          "email",
+          "phone",
+          "current_country",
+          "time_zone",
+          "language",
+          "destination",
+          "purchase_purpose",
+          "budget_range",
+          "timing",
+          "service_needs"
+        ]
+      }
+    },
+    "lotus_owner": {"type": "string", "minLength": 2, "maxLength": 120},
+    "partner_owner": {"type": "string", "minLength": 2, "maxLength": 160},
+    "introduced_at": {"type": "string", "format": "date-time"},
+    "acknowledged_at": {"type": "string", "format": "date-time"},
+    "handoff_evidence_ref": {"type": "string", "minLength": 3, "maxLength": 240},
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "action", "due_at"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 2, "maxLength": 160},
+        "action": {"type": "string", "minLength": 5, "maxLength": 300},
+        "due_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "AUTHORITY_UNVERIFIED",
+          "AGREEMENT_MISSING",
+          "DATA_ROLE_UNRESOLVED",
+          "CONSENT_MISSING",
+          "COMPLIANCE_OWNER_MISSING",
+          "PAYMENT_TRIGGER_UNCLEAR",
+          "CLIENT_WITHDRAWN",
+          "NONE"
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"stage": {"enum": ["INTRODUCED", "ACKNOWLEDGED"]}},
+        "required": ["stage"]
+      },
+      "then": {
+        "properties": {
+          "partner_status": {"enum": ["PILOT", "ACTIVE"]},
+          "consent": {
+            "type": "object",
+            "properties": {"status": {"const": "GRANTED"}},
+            "required": ["status", "evidence_ref"]
+          }
+        },
+        "required": ["introduced_at", "handoff_evidence_ref"]
+      }
+    },
+    {
+      "if": {"properties": {"stage": {"const": "ACKNOWLEDGED"}}, "required": ["stage"]},
+      "then": {"required": ["acknowledged_at"]}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "WITHDRAWN"}}, "required": ["stage"]},
+      "then": {
+        "properties": {
+          "consent": {
+            "type": "object",
+            "properties": {"status": {"const": "WITHDRAWN"}},
+            "required": ["status"]
+          }
+        }
+      }
+    }
+  ]
+}
