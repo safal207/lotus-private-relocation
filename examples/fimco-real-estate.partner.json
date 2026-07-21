@@ -1,0 +1,40 @@
+{
+  "partner_id": "LPR-P-FIMCO-001",
+  "legal_name": "Pending verification (FIMCO Real Estate trading name)",
+  "trading_name": "FIMCO Real Estate",
+  "jurisdiction": "Dubai, United Arab Emirates",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://referral.fimco.ae/",
+  "languages": [
+    "English"
+  ],
+  "service_scope": [
+    "Dubai property buyer introductions",
+    "Referral partner programme",
+    "Brokerage-led transaction coordination"
+  ],
+  "status": "DUE_DILIGENCE",
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "public_register_reference": "https://dubailand.gov.ae/en/eservices/licensed-real-estate-brokers-offices/?r=1 — exact legal-entity and licence match pending",
+    "reviewed_at": "2026-07-21T01:01:28Z",
+    "next_review_at": "2026-08-04T01:01:28Z"
+  },
+  "compensation_model": "commission_share",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "NONE",
+    "payment_trigger": "Public programme claims payment after completed transaction and receipt of payment; contractual trigger and evidence remain unverified."
+  },
+  "service_level": {
+    "named_escalation_path": false
+  },
+  "risk_flags": [
+    "licence_unverified",
+    "payment_transparency_concern",
+    "data_handling_concern"
+  ],
+  "last_verified_at": "2026-07-21T01:01:28Z"
+}
