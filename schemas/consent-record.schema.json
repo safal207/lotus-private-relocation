@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lotus-private-relocation.example/schemas/consent-record.schema.json",
+  "title": "Consent Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "consent_id",
+    "case_id",
+    "partner_id",
+    "recipient_organisation",
+    "purpose",
+    "data_fields",
+    "status",
+    "text_version"
+  ],
+  "properties": {
+    "consent_id": {"type": "string", "pattern": "^LPR-CONS-[A-Z0-9-]+$"},
+    "case_id": {"type": "string", "pattern": "^LPR-CASE-[A-Z0-9-]+$"},
+    "partner_id": {"type": "string", "pattern": "^LPR-P-[A-Z0-9-]+$"},
+    "recipient_organisation": {"type": "string", "minLength": 2, "maxLength": 160},
+    "purpose": {"type": "string", "minLength": 10, "maxLength": 500},
+    "data_fields": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "preferred_name",
+          "email",
+          "phone",
+          "current_country",
+          "time_zone",
+          "language",
+          "destination",
+          "purchase_purpose",
+          "budget_range",
+          "timing",
+          "service_needs"
+        ]
+      }
+    },
+    "status": {"enum": ["NOT_REQUESTED", "REQUESTED", "GRANTED", "WITHDRAWN", "EXPIRED"]},
+    "granted_at": {"type": "string", "format": "date-time"},
+    "withdrawn_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "channel": {"enum": ["EMAIL", "FORM", "RECORDED_CALL", "SIGNED_DOCUMENT"]},
+    "text_version": {"type": "string", "minLength": 1, "maxLength": 80},
+    "evidence_ref": {"type": "string", "minLength": 3, "maxLength": 240},
+    "withdrawal_route": {"type": "string", "minLength": 5, "maxLength": 300}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "GRANTED"}}, "required": ["status"]},
+      "then": {"required": ["granted_at", "channel", "evidence_ref", "withdrawal_route"]}
+    },
+    {
+      "if": {"properties": {"status": {"const": "WITHDRAWN"}}, "required": ["status"]},
+      "then": {"required": ["withdrawn_at", "evidence_ref"]}
+    },
+    {
+      "if": {"properties": {"status": {"const": "EXPIRED"}}, "required": ["status"]},
+      "then": {"required": ["expires_at"]}
+    }
+  ]
+}

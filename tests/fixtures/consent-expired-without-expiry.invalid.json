@@ -1,0 +1,14 @@
+{
+  "consent_id": "LPR-CONS-SYN-EXPIRED-001",
+  "case_id": "LPR-CASE-SYN-EXPIRED-001",
+  "partner_id": "LPR-P-SYN-001",
+  "recipient_organisation": "Synthetic Licensed UAE Partner",
+  "purpose": "Record a synthetic expired consent state for schema validation.",
+  "data_fields": [
+    "preferred_name",
+    "email",
+    "destination"
+  ],
+  "status": "EXPIRED",
+  "text_version": "consent-v0.1"
+}

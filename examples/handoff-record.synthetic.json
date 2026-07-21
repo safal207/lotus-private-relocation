@@ -1,0 +1,34 @@
+{
+  "handoff_id": "LPR-HO-SYN-001",
+  "case_id": "LPR-CASE-SYN-001",
+  "partner_id": "LPR-P-SYN-001",
+  "partner_status": "PILOT",
+  "stage": "INTRODUCED",
+  "purpose": "Introduce the synthetic client to a licensed UAE property partner for an initial discovery consultation.",
+  "consent": {
+    "consent_id": "LPR-CONS-SYN-001",
+    "status": "GRANTED",
+    "evidence_ref": "synthetic://consent/LPR-CONS-SYN-001"
+  },
+  "minimum_data_fields": [
+    "preferred_name",
+    "email",
+    "current_country",
+    "language",
+    "destination",
+    "purchase_purpose",
+    "budget_range",
+    "timing",
+    "service_needs"
+  ],
+  "lotus_owner": "Synthetic Lotus Coordinator",
+  "partner_owner": "Synthetic Licensed Partner Manager",
+  "introduced_at": "2026-07-21T08:10:00Z",
+  "handoff_evidence_ref": "synthetic://handoff/LPR-HO-SYN-001",
+  "next_action": {
+    "owner": "Synthetic Licensed Partner Manager",
+    "action": "Acknowledge the introduction and offer a consultation time.",
+    "due_at": "2026-07-22T08:10:00Z"
+  },
+  "risk_flags": ["NONE"]
+}
