@@ -12,6 +12,7 @@ from typing import Any
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
+PARTNER_SCHEMA_PATH = ROOT / "schemas" / "partner-record.schema.json"
 
 SCHEMA_FIXTURES = (
     (
@@ -19,11 +20,12 @@ SCHEMA_FIXTURES = (
         ROOT / "examples" / "client-intake.synthetic.json",
     ),
     (
-        ROOT / "schemas" / "partner-record.schema.json",
+        PARTNER_SCHEMA_PATH,
         ROOT / "examples" / "partner-record.synthetic.json",
     ),
 )
 
+PARTNER_RECORDS = tuple(sorted((ROOT / "examples").glob("*.partner.json")))
 PUBLIC_EXAMPLES = tuple(sorted((ROOT / "examples").glob("*.json")))
 
 FORBIDDEN_KEY_FRAGMENTS = {
@@ -156,6 +158,9 @@ def main() -> int:
     for schema_path, fixture_path in SCHEMA_FIXTURES:
         errors.extend(validate_schema_and_fixture(schema_path, fixture_path))
 
+    for partner_record_path in PARTNER_RECORDS:
+        errors.extend(validate_schema_and_fixture(PARTNER_SCHEMA_PATH, partner_record_path))
+
     for example_path in PUBLIC_EXAMPLES:
         errors.extend(validate_public_example_privacy(example_path))
 
@@ -170,6 +175,7 @@ def main() -> int:
     print(
         "Validation passed: "
         f"{len(SCHEMA_FIXTURES)} schema fixtures, "
+        f"{len(PARTNER_RECORDS)} partner records, "
         f"{len(PUBLIC_EXAMPLES)} public examples, and static intake form guardrails."
     )
     return 0
