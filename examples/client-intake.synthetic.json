@@ -1,0 +1,28 @@
+{
+  "case_id": "LPR-DEMO-CLIENT-01",
+  "preferred_name": "Demo Founder",
+  "contact_channel": "email",
+  "contact_reference": "demo@example.invalid",
+  "current_country_or_timezone": "Europe/Istanbul",
+  "target_destination": "Dubai, UAE",
+  "purpose": "primary_relocation",
+  "budget_range": "500k_to_1m_usd",
+  "timing": "three_to_twelve_months",
+  "dependencies": [
+    "family",
+    "school",
+    "business",
+    "residency",
+    "tax",
+    "banking"
+  ],
+  "language_preference": "English",
+  "lead_source": "synthetic_demo",
+  "contact_consent": {
+    "granted": true,
+    "recorded_at": "2026-07-21T09:00:00Z",
+    "channel": "synthetic_form"
+  },
+  "qualification_state": "DISCOVERY_READY",
+  "created_at": "2026-07-21T09:00:00Z"
+}
