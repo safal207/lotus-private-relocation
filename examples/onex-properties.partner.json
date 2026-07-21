@@ -1,0 +1,40 @@
+{
+  "partner_id": "LPR-P-ONEX-001",
+  "legal_name": "Pending verification (OneX Properties trading name)",
+  "trading_name": "OneX Properties",
+  "jurisdiction": "Dubai, United Arab Emirates",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://www.onexproperty.ae/",
+  "languages": [
+    "English"
+  ],
+  "service_scope": [
+    "Dubai property buyer introductions",
+    "Affiliate and referral programme",
+    "CRM-tracked brokerage handoff"
+  ],
+  "status": "DUE_DILIGENCE",
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "public_register_reference": "https://dubailand.gov.ae/en/eservices/licensed-real-estate-brokers-offices/?r=1 — exact legal-entity and licence match pending",
+    "reviewed_at": "2026-07-21T01:01:28Z",
+    "next_review_at": "2026-08-04T01:01:28Z"
+  },
+  "compensation_model": "commission_share",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "NONE",
+    "payment_trigger": "Public programme claims payout after developer confirmation of the SPA; exact contractual trigger, percentage and evidence remain unverified."
+  },
+  "service_level": {
+    "named_escalation_path": false
+  },
+  "risk_flags": [
+    "licence_unverified",
+    "payment_transparency_concern",
+    "data_handling_concern"
+  ],
+  "last_verified_at": "2026-07-21T01:01:28Z"
+}
