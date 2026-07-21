@@ -41,12 +41,20 @@ SCHEMA_FIXTURES = (
 
 NEGATIVE_SCHEMA_FIXTURES = (
     (
+        CONSENT_SCHEMA_PATH,
+        ROOT / "tests" / "fixtures" / "consent-expired-without-expiry.invalid.json",
+    ),
+    (
         HANDOFF_SCHEMA_PATH,
         ROOT / "tests" / "fixtures" / "handoff-introduced-due-diligence.invalid.json",
     ),
     (
         HANDOFF_SCHEMA_PATH,
         ROOT / "tests" / "fixtures" / "handoff-introduced-without-consent.invalid.json",
+    ),
+    (
+        HANDOFF_SCHEMA_PATH,
+        ROOT / "tests" / "fixtures" / "handoff-introduced-with-blocking-risk.invalid.json",
     ),
 )
 
