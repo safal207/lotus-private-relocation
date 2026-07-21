@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/client-intake.schema.json",
+  "title": "Lotus Private Relocation — Minimal Client Intake",
+  "description": "Public-safe schema for a first-stage enquiry. Do not add identity documents, banking records, exact wealth, source-of-funds files, or children’s documents.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "preferred_name",
+    "contact_channel",
+    "current_country_or_timezone",
+    "target_destination",
+    "purpose",
+    "budget_range",
+    "timing",
+    "contact_consent",
+    "created_at"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^LPR-[A-Z0-9-]{6,32}$"
+    },
+    "preferred_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "contact_channel": {
+      "type": "string",
+      "enum": ["email", "phone", "whatsapp", "telegram", "signal", "other"]
+    },
+    "contact_reference": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Keep this field only in a private system of record. Use synthetic values in public examples."
+    },
+    "current_country_or_timezone": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "target_destination": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "primary_relocation",
+        "second_home",
+        "business_base",
+        "long_term_rental",
+        "property_purchase",
+        "jurisdiction_comparison",
+        "other"
+      ]
+    },
+    "budget_range": {
+      "type": "string",
+      "enum": [
+        "under_250k_usd",
+        "250k_to_500k_usd",
+        "500k_to_1m_usd",
+        "1m_to_3m_usd",
+        "over_3m_usd",
+        "not_yet_defined"
+      ]
+    },
+    "timing": {
+      "type": "string",
+      "enum": ["within_30_days", "one_to_three_months", "three_to_twelve_months", "over_twelve_months", "unknown"]
+    },
+    "dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["family", "school", "business", "financing", "residency", "legal", "tax", "banking", "moving", "other"]
+      }
+    },
+    "language_preference": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "lead_source": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "contact_consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["granted", "recorded_at", "channel"],
+      "properties": {
+        "granted": {"const": true},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "channel": {"type": "string", "maxLength": 50}
+      }
+    },
+    "qualification_state": {
+      "type": "string",
+      "enum": [
+        "NEW",
+        "CONTACTABLE",
+        "DISCOVERY_READY",
+        "NEEDS_CLARIFICATION",
+        "PARTNER_REVIEW_REQUIRED",
+        "NOT_A_FIT",
+        "COMPLIANCE_HOLD"
+      ],
+      "default": "NEW"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
