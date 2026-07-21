@@ -107,6 +107,10 @@
       "then": {
         "properties": {
           "partner_status": {"enum": ["PILOT", "ACTIVE"]},
+          "risk_flags": {
+            "type": "array",
+            "items": {"const": "NONE"}
+          },
           "consent": {
             "type": "object",
             "properties": {"status": {"const": "GRANTED"}},
