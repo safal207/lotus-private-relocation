@@ -33,6 +33,10 @@ SCHEMA_FIXTURES = (
         HANDOFF_SCHEMA_PATH,
         ROOT / "examples" / "handoff-record.synthetic.json",
     ),
+    (
+        HANDOFF_SCHEMA_PATH,
+        ROOT / "examples" / "handoff-record.acknowledged.synthetic.json",
+    ),
 )
 
 NEGATIVE_SCHEMA_FIXTURES = (
