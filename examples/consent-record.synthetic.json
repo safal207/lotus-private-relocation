@@ -1,0 +1,24 @@
+{
+  "consent_id": "LPR-CONS-SYN-001",
+  "case_id": "LPR-CASE-SYN-001",
+  "partner_id": "LPR-P-SYN-001",
+  "recipient_organisation": "Synthetic Licensed UAE Partner",
+  "purpose": "Introduce the synthetic client to a licensed UAE property partner for an initial discovery consultation.",
+  "data_fields": [
+    "preferred_name",
+    "email",
+    "current_country",
+    "language",
+    "destination",
+    "purchase_purpose",
+    "budget_range",
+    "timing",
+    "service_needs"
+  ],
+  "status": "GRANTED",
+  "granted_at": "2026-07-21T08:00:00Z",
+  "channel": "FORM",
+  "text_version": "consent-v0.1",
+  "evidence_ref": "synthetic://consent/LPR-CONS-SYN-001",
+  "withdrawal_route": "The synthetic client may withdraw consent through the recorded Lotus coordination channel."
+}
