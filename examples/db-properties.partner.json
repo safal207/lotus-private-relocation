@@ -1,0 +1,31 @@
+{
+  "partner_id": "LPR-P-DB-001",
+  "legal_name": "D&B Properties",
+  "trading_name": "D&B Properties",
+  "jurisdiction": "Dubai, United Arab Emirates",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://www.dandbdubai.com/",
+  "languages": ["English", "Russian", "Arabic", "other"],
+  "service_scope": [
+    "Dubai property buyer introductions",
+    "off-plan and secondary-market transaction support",
+    "partner referral tracking"
+  ],
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "public_register_reference": "https://dubailand.gov.ae/en/news-media/dubai-land-department-recognises-10-real-estate-firms-surpassing-emiratisation-goals-under-the-dubai-real-estate-broker-programme",
+    "reviewed_at": "2026-07-21T00:50:00Z",
+    "next_review_at": "2026-08-20T00:50:00Z"
+  },
+  "compensation_model": "commission_share",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "NONE",
+    "payment_trigger": "Public partner page states payment follows receipt of the agency commission; exact contractual trigger, percentage, protection period, cancellation treatment, and tax documentation remain unreviewed."
+  },
+  "status": "DUE_DILIGENCE",
+  "risk_flags": ["licence_unverified", "payment_transparency_concern"],
+  "last_verified_at": "2026-07-21T00:50:00Z"
+}
