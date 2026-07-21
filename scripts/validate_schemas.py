@@ -13,6 +13,8 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 PARTNER_SCHEMA_PATH = ROOT / "schemas" / "partner-record.schema.json"
+CONSENT_SCHEMA_PATH = ROOT / "schemas" / "consent-record.schema.json"
+HANDOFF_SCHEMA_PATH = ROOT / "schemas" / "handoff-record.schema.json"
 
 SCHEMA_FIXTURES = (
     (
@@ -22,6 +24,25 @@ SCHEMA_FIXTURES = (
     (
         PARTNER_SCHEMA_PATH,
         ROOT / "examples" / "partner-record.synthetic.json",
+    ),
+    (
+        CONSENT_SCHEMA_PATH,
+        ROOT / "examples" / "consent-record.synthetic.json",
+    ),
+    (
+        HANDOFF_SCHEMA_PATH,
+        ROOT / "examples" / "handoff-record.synthetic.json",
+    ),
+)
+
+NEGATIVE_SCHEMA_FIXTURES = (
+    (
+        HANDOFF_SCHEMA_PATH,
+        ROOT / "tests" / "fixtures" / "handoff-introduced-due-diligence.invalid.json",
+    ),
+    (
+        HANDOFF_SCHEMA_PATH,
+        ROOT / "tests" / "fixtures" / "handoff-introduced-without-consent.invalid.json",
     ),
 )
 
@@ -66,18 +87,14 @@ def iter_items(value: Any, path: str = "$"):
             yield from iter_items(item, item_path)
 
 
-def validate_schema_and_fixture(schema_path: Path, fixture_path: Path) -> list[str]:
-    errors: list[str] = []
+def validation_errors(schema_path: Path, fixture_path: Path) -> list[str]:
     schema = load_json(schema_path)
     fixture = load_json(fixture_path)
 
-    try:
-        Draft202012Validator.check_schema(schema)
-    except Exception as exc:  # jsonschema exposes several schema error subclasses
-        errors.append(f"Invalid schema {schema_path.relative_to(ROOT)}: {exc}")
-        return errors
-
+    Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
+
+    errors: list[str] = []
     for error in sorted(validator.iter_errors(fixture), key=lambda item: list(item.absolute_path)):
         location = "$"
         if error.absolute_path:
@@ -85,11 +102,29 @@ def validate_schema_and_fixture(schema_path: Path, fixture_path: Path) -> list[s
                 f"[{part}]" if isinstance(part, int) else f".{part}"
                 for part in error.absolute_path
             )
-        errors.append(
-            f"{fixture_path.relative_to(ROOT)} {location}: {error.message}"
-        )
-
+        errors.append(f"{fixture_path.relative_to(ROOT)} {location}: {error.message}")
     return errors
+
+
+def validate_schema_and_fixture(schema_path: Path, fixture_path: Path) -> list[str]:
+    try:
+        return validation_errors(schema_path, fixture_path)
+    except Exception as exc:  # jsonschema exposes several schema error subclasses
+        return [f"Cannot validate {schema_path.relative_to(ROOT)}: {exc}"]
+
+
+def validate_expected_invalid(schema_path: Path, fixture_path: Path) -> list[str]:
+    try:
+        errors = validation_errors(schema_path, fixture_path)
+    except Exception as exc:
+        return [f"Cannot validate negative fixture {fixture_path.relative_to(ROOT)}: {exc}"]
+
+    if errors:
+        return []
+
+    return [
+        f"Unsafe negative fixture unexpectedly passed: {fixture_path.relative_to(ROOT)}"
+    ]
 
 
 def validate_public_example_privacy(path: Path) -> list[str]:
@@ -158,6 +193,9 @@ def main() -> int:
     for schema_path, fixture_path in SCHEMA_FIXTURES:
         errors.extend(validate_schema_and_fixture(schema_path, fixture_path))
 
+    for schema_path, fixture_path in NEGATIVE_SCHEMA_FIXTURES:
+        errors.extend(validate_expected_invalid(schema_path, fixture_path))
+
     for partner_record_path in PARTNER_RECORDS:
         errors.extend(validate_schema_and_fixture(PARTNER_SCHEMA_PATH, partner_record_path))
 
@@ -174,7 +212,8 @@ def main() -> int:
 
     print(
         "Validation passed: "
-        f"{len(SCHEMA_FIXTURES)} schema fixtures, "
+        f"{len(SCHEMA_FIXTURES)} positive schema fixtures, "
+        f"{len(NEGATIVE_SCHEMA_FIXTURES)} rejected unsafe fixtures, "
         f"{len(PARTNER_RECORDS)} partner records, "
         f"{len(PUBLIC_EXAMPLES)} public examples, and static intake form guardrails."
     )
