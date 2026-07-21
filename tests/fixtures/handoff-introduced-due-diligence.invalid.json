@@ -1,0 +1,24 @@
+{
+  "handoff_id": "LPR-HO-INVALID-001",
+  "case_id": "LPR-CASE-SYN-001",
+  "partner_id": "LPR-P-SYN-001",
+  "partner_status": "DUE_DILIGENCE",
+  "stage": "INTRODUCED",
+  "purpose": "Attempt an introduction before the partner has passed the activation gates.",
+  "consent": {
+    "consent_id": "LPR-CONS-SYN-001",
+    "status": "GRANTED",
+    "evidence_ref": "synthetic://consent/LPR-CONS-SYN-001"
+  },
+  "minimum_data_fields": ["preferred_name", "email"],
+  "lotus_owner": "Synthetic Lotus Coordinator",
+  "partner_owner": "Synthetic Partner Manager",
+  "introduced_at": "2026-07-21T08:10:00Z",
+  "handoff_evidence_ref": "synthetic://handoff/invalid-due-diligence",
+  "next_action": {
+    "owner": "Synthetic Partner Manager",
+    "action": "Acknowledge the invalid handoff.",
+    "due_at": "2026-07-22T08:10:00Z"
+  },
+  "risk_flags": ["AUTHORITY_UNVERIFIED"]
+}
