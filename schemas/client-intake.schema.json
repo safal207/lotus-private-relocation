@@ -22,6 +22,16 @@
       "type": "string",
       "pattern": "^LPR-[A-Z0-9-]{6,32}$"
     },
+    "service_interest": {
+      "type": "string",
+      "enum": [
+        "relocation_discovery",
+        "uae_decision_map",
+        "family_relocation_coordination",
+        "b2b_decision_desk",
+        "not_yet_defined"
+      ]
+    },
     "preferred_name": {
       "type": "string",
       "minLength": 1,
@@ -29,7 +39,14 @@
     },
     "contact_channel": {
       "type": "string",
-      "enum": ["email", "phone", "whatsapp", "telegram", "signal", "other"]
+      "enum": [
+        "email",
+        "phone",
+        "whatsapp",
+        "telegram",
+        "signal",
+        "other"
+      ]
     },
     "contact_reference": {
       "type": "string",
@@ -71,14 +88,31 @@
     },
     "timing": {
       "type": "string",
-      "enum": ["within_30_days", "one_to_three_months", "three_to_twelve_months", "over_twelve_months", "unknown"]
+      "enum": [
+        "within_30_days",
+        "one_to_three_months",
+        "three_to_twelve_months",
+        "over_twelve_months",
+        "unknown"
+      ]
     },
     "dependencies": {
       "type": "array",
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "enum": ["family", "school", "business", "financing", "residency", "legal", "tax", "banking", "moving", "other"]
+        "enum": [
+          "family",
+          "school",
+          "business",
+          "financing",
+          "residency",
+          "legal",
+          "tax",
+          "banking",
+          "moving",
+          "other"
+        ]
       }
     },
     "language_preference": {
@@ -92,11 +126,23 @@
     "contact_consent": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["granted", "recorded_at", "channel"],
+      "required": [
+        "granted",
+        "recorded_at",
+        "channel"
+      ],
       "properties": {
-        "granted": {"const": true},
-        "recorded_at": {"type": "string", "format": "date-time"},
-        "channel": {"type": "string", "maxLength": 50}
+        "granted": {
+          "const": true
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "channel": {
+          "type": "string",
+          "maxLength": 50
+        }
       }
     },
     "qualification_state": {

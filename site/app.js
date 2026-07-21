@@ -6,6 +6,8 @@ const jsonPreview = document.querySelector("#json-preview");
 const downloadButton = document.querySelector("#download-json");
 const resetButton = document.querySelector("#reset-form");
 const errorBox = document.querySelector("#form-error");
+const serviceInterest = document.querySelector("#service-interest");
+const packageLinks = document.querySelectorAll("[data-package]");
 
 let currentBrief = null;
 
@@ -52,6 +54,7 @@ function buildBrief() {
 
   const brief = {
     case_id: createCaseId(),
+    service_interest: serviceInterest.value,
     preferred_name: readTrimmedValue("#preferred-name"),
     contact_channel: document.querySelector("#contact-channel").value,
     contact_reference: contactReference,
@@ -94,6 +97,15 @@ function renderBrief(brief) {
   resultPanel.hidden = false;
   resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+packageLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const packageValue = link.dataset.package;
+    if (packageValue && serviceInterest.querySelector(`option[value="${packageValue}"]`)) {
+      serviceInterest.value = packageValue;
+    }
+  });
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();

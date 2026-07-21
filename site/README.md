@@ -1,6 +1,14 @@
-# Static intake prototype
+# Static commercial intake prototype
 
-This directory contains a browser-only prototype for the first-stage Lotus Private Relocation discovery brief.
+This directory contains a browser-only commercial landing page and first-stage Lotus Private Relocation discovery-request builder.
+
+## What the page demonstrates
+
+- clear paid package positioning for Relocation Discovery, UAE Decision Map, and Family Relocation Coordination;
+- a synthetic example of the written decision brief;
+- founder-led, QA-style evidence and handoff principles;
+- package selection carried into the generated local intake record as `service_interest`;
+- an honest prototype boundary: no payment, transmission, booking, or automatic contact occurs.
 
 ## Privacy model
 
@@ -49,7 +57,7 @@ The validator checks:
 
 ## Before production use
 
-Do not connect this form to a backend until the following are defined and reviewed:
+Do not connect this form to a backend, payment provider, calendar, CRM, email service, or analytics platform until the following are defined and reviewed:
 
 - legal entity and controller identity;
 - privacy notice and lawful basis;
@@ -60,4 +68,5 @@ Do not connect this form to a backend until the following are defined and review
 - incident response;
 - processor and partner agreements;
 - authentication and anti-abuse controls;
+- payment, cancellation, refund, tax, and invoicing treatment;
 - jurisdiction-specific legal review.
