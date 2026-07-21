@@ -57,6 +57,10 @@
     {
       "if": {"properties": {"status": {"const": "WITHDRAWN"}}, "required": ["status"]},
       "then": {"required": ["withdrawn_at", "evidence_ref"]}
+    },
+    {
+      "if": {"properties": {"status": {"const": "EXPIRED"}}, "required": ["status"]},
+      "then": {"required": ["expires_at"]}
     }
   ]
 }
