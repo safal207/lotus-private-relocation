@@ -1,0 +1,40 @@
+{
+  "partner_id": "LPR-P-ELITA-001",
+  "legal_name": "Pending verification (Elita Homes trading name)",
+  "trading_name": "Elita Homes",
+  "jurisdiction": "Dubai, United Arab Emirates",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://elitahomes.ae/become-a-partner",
+  "languages": [
+    "English"
+  ],
+  "service_scope": [
+    "Dubai residential and commercial property referrals",
+    "Buyer and seller introductions",
+    "Co-brokerage introductions"
+  ],
+  "status": "DUE_DILIGENCE",
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "public_register_reference": "https://dubailand.gov.ae/en/eservices/licensed-real-estate-brokers-offices/?r=1 — exact legal-entity and licence match pending",
+    "reviewed_at": "2026-07-21T01:01:28Z",
+    "next_review_at": "2026-08-04T01:01:28Z"
+  },
+  "compensation_model": "commission_share",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "NONE",
+    "payment_trigger": "Public programme states payment after successful deal completion; commission basis, evidence and payout terms remain unverified."
+  },
+  "service_level": {
+    "named_escalation_path": false
+  },
+  "risk_flags": [
+    "licence_unverified",
+    "payment_transparency_concern",
+    "data_handling_concern"
+  ],
+  "last_verified_at": "2026-07-21T01:01:28Z"
+}
