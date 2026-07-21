@@ -1,0 +1,23 @@
+{
+  "handoff_id": "LPR-HO-INVALID-002",
+  "case_id": "LPR-CASE-SYN-001",
+  "partner_id": "LPR-P-SYN-001",
+  "partner_status": "PILOT",
+  "stage": "INTRODUCED",
+  "purpose": "Attempt an introduction before the synthetic client has granted consent.",
+  "consent": {
+    "consent_id": "LPR-CONS-SYN-002",
+    "status": "REQUESTED"
+  },
+  "minimum_data_fields": ["preferred_name", "email"],
+  "lotus_owner": "Synthetic Lotus Coordinator",
+  "partner_owner": "Synthetic Licensed Partner Manager",
+  "introduced_at": "2026-07-21T08:10:00Z",
+  "handoff_evidence_ref": "synthetic://handoff/invalid-consent",
+  "next_action": {
+    "owner": "Synthetic Lotus Coordinator",
+    "action": "Obtain explicit consent before any introduction.",
+    "due_at": "2026-07-22T08:10:00Z"
+  },
+  "risk_flags": ["CONSENT_MISSING"]
+}
