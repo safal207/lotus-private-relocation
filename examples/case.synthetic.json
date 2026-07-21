@@ -1,0 +1,82 @@
+{
+  "notice": "Synthetic demonstration only. No real person, company, property, contact detail, contract, or transaction is represented.",
+  "case": {
+    "case_id": "LPR-DEMO-001",
+    "preferred_name": "Demo Founder",
+    "contact_channel": "email",
+    "contact_reference": "demo@example.invalid",
+    "current_country_or_timezone": "Europe/Istanbul",
+    "target_destination": "Dubai, UAE",
+    "purpose": "primary_relocation",
+    "budget_range": "500k_to_1m_usd",
+    "timing": "three_to_twelve_months",
+    "dependencies": ["family", "school", "business", "residency", "tax", "banking"],
+    "language_preference": "English",
+    "lead_source": "synthetic_demo",
+    "contact_consent": {
+      "granted": true,
+      "recorded_at": "2026-07-21T09:00:00Z",
+      "channel": "synthetic_form"
+    },
+    "qualification_state": "DISCOVERY_READY",
+    "created_at": "2026-07-21T09:00:00Z"
+  },
+  "discovery_output": {
+    "goal": "Evaluate a family relocation and business base in Dubai without treating property purchase as a guaranteed residency or investment outcome.",
+    "confirmed_requirements": [
+      "family-friendly location",
+      "international school access",
+      "reasonable airport access",
+      "home-office suitability"
+    ],
+    "assumptions_requiring_verification": [
+      "residency eligibility",
+      "tax consequences in current and destination jurisdictions",
+      "banking and mortgage eligibility",
+      "current property availability and total acquisition cost"
+    ],
+    "partner_categories": [
+      "real_estate_brokerage",
+      "property_law",
+      "immigration",
+      "tax_accounting",
+      "banking_mortgage",
+      "education"
+    ],
+    "risk_state": "PARTNER_REVIEW_REQUIRED"
+  },
+  "proposed_introduction": {
+    "partner_id": "LPR-P-DEMO-01",
+    "purpose": "Initial licensed property-needs consultation",
+    "minimum_data_to_share": [
+      "preferred_name",
+      "contact_reference",
+      "target_destination",
+      "purpose",
+      "budget_range",
+      "timing",
+      "high_level_property_requirements"
+    ],
+    "excluded_data": [
+      "passport",
+      "bank_statements",
+      "tax_returns",
+      "source_of_funds_documents",
+      "children_documents"
+    ],
+    "consent_state": "PENDING_CLIENT_CONFIRMATION"
+  },
+  "crm": {
+    "stage": "INTRODUCTION_CONSENT",
+    "next_action": "Show the named partner, purpose, data fields, compensation disclosure, and withdrawal route to the synthetic client.",
+    "owner": "lotus_demo_coordinator",
+    "due_at": "2026-07-23T09:00:00Z",
+    "regulated_execution_owner": "unassigned_until_partner_verified",
+    "commercial_value": {
+      "type": "forecast",
+      "amount": null,
+      "currency": null,
+      "note": "No referral revenue is estimated until a written agreement and payment trigger are verified."
+    }
+  }
+}
