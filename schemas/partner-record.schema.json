@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/partner-record.schema.json",
+  "title": "Lotus Private Relocation — Partner Record",
+  "description": "Schema for partner qualification metadata. Store private contracts, IDs, personal contacts, and compliance evidence outside the public repository.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "partner_id",
+    "legal_name",
+    "jurisdiction",
+    "partner_type",
+    "status",
+    "authority_review",
+    "compensation_model",
+    "data_role",
+    "last_verified_at"
+  ],
+  "properties": {
+    "partner_id": {
+      "type": "string",
+      "pattern": "^LPR-P-[A-Z0-9-]{4,24}$"
+    },
+    "legal_name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 200
+    },
+    "trading_name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "partner_type": {
+      "type": "string",
+      "enum": [
+        "real_estate_brokerage",
+        "property_law",
+        "immigration",
+        "tax_accounting",
+        "banking_mortgage",
+        "education",
+        "relocation_moving",
+        "insurance",
+        "family_office_wealth",
+        "business_adviser",
+        "other"
+      ]
+    },
+    "public_website": {
+      "type": "string",
+      "format": "uri"
+    },
+    "languages": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "maxLength": 50}
+    },
+    "service_scope": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 200}
+    },
+    "authority_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "status", "reviewed_at"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "status": {
+          "type": "string",
+          "enum": ["NOT_APPLICABLE", "PENDING", "VERIFIED", "RESTRICTED", "FAILED", "EXPIRED"]
+        },
+        "public_register_reference": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Use a public verification URL or reference only. Keep private evidence outside the public repository."
+        },
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "next_review_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "compensation_model": {
+      "type": "string",
+      "enum": ["commission_share", "fixed_referral_fee", "client_coordination_fee", "white_label_fee", "reciprocal_referral", "none", "under_review"]
+    },
+    "compensation_disclosure_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "data_role": {
+      "type": "string",
+      "enum": ["independent_controller", "processor", "joint_controller", "no_personal_data", "under_review"]
+    },
+    "lead_protection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agreement_status": {
+          "type": "string",
+          "enum": ["NONE", "DRAFT", "SIGNED", "EXPIRED", "TERMINATED"]
+        },
+        "protection_period_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3650
+        },
+        "payment_trigger": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "service_level": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "acknowledgement_hours": {"type": "integer", "minimum": 1, "maximum": 720},
+        "named_escalation_path": {"type": "boolean"}
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["CANDIDATE", "DUE_DILIGENCE", "PILOT", "ACTIVE", "RESTRICTED", "SUSPENDED", "REJECTED", "INACTIVE"]
+    },
+    "risk_flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "licence_unverified",
+          "licence_expired",
+          "misleading_claims",
+          "guaranteed_outcomes",
+          "undisclosed_fees",
+          "data_handling_concern",
+          "payment_transparency_concern",
+          "client_pressure",
+          "compliance_concern",
+          "service_quality_concern"
+        ]
+      }
+    },
+    "last_verified_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
