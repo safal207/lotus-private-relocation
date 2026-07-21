@@ -1,0 +1,31 @@
+{
+  "partner_id": "LPR-P-GAIA-001",
+  "legal_name": "Gaia Living Real Estate",
+  "trading_name": "Gaia Living",
+  "jurisdiction": "Dubai, United Arab Emirates",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://www.gaiarealty.ae/",
+  "languages": ["English", "Arabic", "other"],
+  "service_scope": [
+    "Dubai property buyer introductions",
+    "relocation coordination",
+    "international introducer and co-broke support",
+    "partner referral tracking"
+  ],
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "reviewed_at": "2026-07-21T00:50:00Z",
+    "next_review_at": "2026-08-20T00:50:00Z"
+  },
+  "compensation_model": "under_review",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "NONE",
+    "payment_trigger": "Public partnership page states rewards are paid after successful transaction completion under the partnership agreement; exact rate, protection period, payout timing, cancellation treatment, and tax documentation remain unreviewed."
+  },
+  "status": "DUE_DILIGENCE",
+  "risk_flags": ["licence_unverified"],
+  "last_verified_at": "2026-07-21T00:50:00Z"
+}

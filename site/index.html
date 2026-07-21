@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Private, evidence-led relocation discovery for founders, investors, and families considering the UAE.">
+  <title>Lotus Private Relocation — Private Discovery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Lotus Private Relocation home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>Lotus Private Relocation</span>
+    </a>
+    <a class="header-link" href="#discovery">Start private discovery</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">UAE property and relocation coordination</p>
+        <h1 id="hero-title">A clearer path to your next home and global base.</h1>
+        <p class="hero-lede">
+          Private, evidence-led coordination for founders, investors, and families —
+          with licensed execution kept where it belongs.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#discovery">Create a discovery brief</a>
+          <a class="button secondary" href="#boundaries">How the model works</a>
+        </div>
+      </div>
+
+      <aside class="principle-card" aria-label="Operating principle">
+        <p class="card-kicker">Operating principle</p>
+        <p class="principle">Evidence before recommendation.</p>
+        <p class="principle">Consent before introduction.</p>
+        <p class="principle">Licensed execution before transaction.</p>
+      </aside>
+    </section>
+
+    <section class="trust-strip" aria-label="Service boundaries">
+      <div><strong>No false guarantees</strong><span>No promised visas, returns, financing, or availability.</span></div>
+      <div><strong>Minimum data</strong><span>Only what is needed for an initial discovery brief.</span></div>
+      <div><strong>Named specialists</strong><span>Regulated questions go to qualified, authorised partners.</span></div>
+    </section>
+
+    <section id="boundaries" class="section split-section">
+      <div>
+        <p class="eyebrow">One coordination layer</p>
+        <h2>Relocation is not one decision.</h2>
+        <p>
+          Property, residency, tax, banking, schools, business, and family needs often
+          involve different providers with different responsibilities. Lotus creates a
+          structured brief, records open questions, and coordinates consent-based introductions.
+        </p>
+      </div>
+      <div class="boundary-list">
+        <article>
+          <h3>Lotus coordinates</h3>
+          <p>Goals, requirements, evidence, introductions, responsibilities, and next actions.</p>
+        </article>
+        <article>
+          <h3>Licensed partners execute</h3>
+          <p>Brokerage, legal, tax, immigration, banking, compliance, and transactions.</p>
+        </article>
+        <article>
+          <h3>You remain in control</h3>
+          <p>You choose the partner, approve the introduction, and may withdraw consent.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="discovery" class="section form-section" aria-labelledby="form-title">
+      <div class="form-heading">
+        <p class="eyebrow">Private discovery brief</p>
+        <h2 id="form-title">Describe the journey — without sending sensitive documents.</h2>
+        <p>
+          This prototype does not send your data anywhere. It creates a local JSON preview
+          in your browser and lets you download it for review.
+        </p>
+      </div>
+
+      <div class="privacy-notice" role="note">
+        <strong>Privacy boundary:</strong>
+        Do not enter passport numbers, bank details, tax returns, exact wealth,
+        source-of-funds documents, children’s documents, passwords, or access credentials.
+      </div>
+
+      <form id="intake-form" novalidate>
+        <div class="form-grid">
+          <label>
+            <span>Preferred name</span>
+            <input id="preferred-name" name="preferred_name" type="text" maxlength="100" autocomplete="name" required>
+          </label>
+
+          <label>
+            <span>Preferred contact channel</span>
+            <select id="contact-channel" name="contact_channel" required>
+              <option value="">Select one</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="telegram">Telegram</option>
+              <option value="signal">Signal</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Contact reference</span>
+            <input id="contact-reference" name="contact_reference" type="text" maxlength="200" autocomplete="email" required>
+            <small>Email, phone, or handle. Stored only in the downloaded local brief.</small>
+          </label>
+
+          <label>
+            <span>Current country or time zone</span>
+            <input id="current-location" name="current_country_or_timezone" type="text" maxlength="100" placeholder="Europe/Istanbul" required>
+          </label>
+
+          <label>
+            <span>Target destination</span>
+            <input id="target-destination" name="target_destination" type="text" maxlength="100" value="Dubai, UAE" required>
+          </label>
+
+          <label>
+            <span>Primary purpose</span>
+            <select id="purpose" name="purpose" required>
+              <option value="">Select one</option>
+              <option value="primary_relocation">Primary relocation</option>
+              <option value="second_home">Second home</option>
+              <option value="business_base">Business base</option>
+              <option value="long_term_rental">Long-term rental</option>
+              <option value="property_purchase">Property purchase</option>
+              <option value="jurisdiction_comparison">Jurisdiction comparison</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Broad budget range</span>
+            <select id="budget-range" name="budget_range" required>
+              <option value="">Select one</option>
+              <option value="under_250k_usd">Under $250k</option>
+              <option value="250k_to_500k_usd">$250k–$500k</option>
+              <option value="500k_to_1m_usd">$500k–$1m</option>
+              <option value="1m_to_3m_usd">$1m–$3m</option>
+              <option value="over_3m_usd">Over $3m</option>
+              <option value="not_yet_defined">Not yet defined</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Expected timing</span>
+            <select id="timing" name="timing" required>
+              <option value="">Select one</option>
+              <option value="within_30_days">Within 30 days</option>
+              <option value="one_to_three_months">1–3 months</option>
+              <option value="three_to_twelve_months">3–12 months</option>
+              <option value="over_twelve_months">Over 12 months</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Preferred language</span>
+            <input id="language-preference" name="language_preference" type="text" maxlength="50" value="English">
+          </label>
+        </div>
+
+        <fieldset>
+          <legend>Which areas may need coordination?</legend>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="dependencies" value="family"> Family</label>
+            <label><input type="checkbox" name="dependencies" value="school"> School</label>
+            <label><input type="checkbox" name="dependencies" value="business"> Business</label>
+            <label><input type="checkbox" name="dependencies" value="financing"> Financing</label>
+            <label><input type="checkbox" name="dependencies" value="residency"> Residency</label>
+            <label><input type="checkbox" name="dependencies" value="legal"> Legal</label>
+            <label><input type="checkbox" name="dependencies" value="tax"> Tax</label>
+            <label><input type="checkbox" name="dependencies" value="banking"> Banking</label>
+            <label><input type="checkbox" name="dependencies" value="moving"> Moving</label>
+            <label><input type="checkbox" name="dependencies" value="other"> Other</label>
+          </div>
+        </fieldset>
+
+        <label class="consent-row">
+          <input id="contact-consent" name="contact_consent" type="checkbox" required>
+          <span>
+            I consent to being contacted about this discovery request. I understand that
+            no information will be shared with a third party without a separate, named introduction.
+          </span>
+        </label>
+
+        <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
+
+        <div class="form-actions">
+          <button class="button primary" type="submit">Generate local brief</button>
+          <button class="button secondary" id="reset-form" type="reset">Clear</button>
+        </div>
+      </form>
+
+      <section id="result" class="result-panel" hidden aria-labelledby="result-title">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">Local output</p>
+            <h3 id="result-title">Discovery brief generated</h3>
+          </div>
+          <button class="button secondary" id="download-json" type="button">Download JSON</button>
+        </div>
+        <p class="result-note">
+          Review the brief before sharing it. The downloaded file may contain your contact reference.
+        </p>
+        <pre id="json-preview" tabindex="0"></pre>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lotus Private Relocation is an introduction and coordination concept, not a brokerage, law firm, tax adviser, immigration consultancy, bank, lender, or investment adviser.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

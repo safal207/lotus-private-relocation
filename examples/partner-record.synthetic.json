@@ -1,0 +1,35 @@
+{
+  "partner_id": "LPR-P-DEMO-01",
+  "legal_name": "Example Licensed Brokerage LLC",
+  "trading_name": "Example Brokerage",
+  "jurisdiction": "Dubai, UAE",
+  "partner_type": "real_estate_brokerage",
+  "public_website": "https://example.invalid",
+  "languages": ["English", "Russian"],
+  "service_scope": [
+    "Initial property-needs consultation",
+    "Licensed property brokerage within verified authority"
+  ],
+  "authority_review": {
+    "required": true,
+    "status": "PENDING",
+    "public_register_reference": "https://example.invalid/public-register-demo",
+    "reviewed_at": "2026-07-21T09:00:00Z",
+    "next_review_at": "2026-07-28T09:00:00Z"
+  },
+  "compensation_model": "under_review",
+  "compensation_disclosure_required": true,
+  "data_role": "under_review",
+  "lead_protection": {
+    "agreement_status": "DRAFT",
+    "protection_period_days": 0,
+    "payment_trigger": "Not defined until written agreement review is complete."
+  },
+  "service_level": {
+    "acknowledgement_hours": 48,
+    "named_escalation_path": false
+  },
+  "status": "DUE_DILIGENCE",
+  "risk_flags": ["licence_unverified"],
+  "last_verified_at": "2026-07-21T09:00:00Z"
+}
